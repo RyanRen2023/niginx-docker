@@ -16,7 +16,7 @@ This project demonstrates how to run Nginx as a web server in a Docker environme
 
 ## Project Structure
 
-\`\`\`plaintext
+```plaintext
 nginx-docker
 ├── docker-compose.yml
 ├── Dockerfile
@@ -29,7 +29,7 @@ nginx-docker
   • Dockerfile: Custom Docker image for Nginx.
   • html/index.html: Example HTML file to be served by Nginx.
   • nginx/nginx.conf: Configuration file for Nginx.
-\`\`\`
+```
 
 ## Requirements
 
@@ -42,34 +42,34 @@ nginx-docker
 
 Clone this repository to your local machine:
 
-\`\`\`sh
+```sh
 git clone https://github.com/yourusername/nginx-docker.git
 cd nginx-docker
-\`\`\`
+```
 
 ### Step 2: Build the Docker Image
 
 Build the custom Nginx Docker image using the provided Dockerfile:
 
-\`\`\`sh
+```sh
 docker build -t custom-nginx .
-\`\`\`
+```
 
 ### Step 3: Start the Docker Compose
 
 Start the Nginx service using Docker Compose:
 
-\`\`\`sh
+```sh
 docker-compose up -d
-\`\`\`
+```
 
 ## Accessing the Web Server
 
 Once the services are up and running, you can access the web server by opening your web browser and navigating to:
 
-\`\`\`plaintext
+```plaintext
 http://localhost
-\`\`\`
+```
 
 You should see a message saying “Success! Nginx is running in a Docker container.”
 
@@ -77,15 +77,15 @@ You should see a message saying “Success! Nginx is running in a Docker contain
 
 To stop the running services, use the following command:
 
-\`\`\`sh
+```sh
 docker-compose down
-\`\`\`
+```
 
 ## Example Configuration Files
 
 ### docker-compose.yml
 
-\`\`\`yaml
+```yaml
 version: '3'
 services:
   nginx:
@@ -96,19 +96,19 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./html:/usr/share/nginx/html
-\`\`\`
+```
 
 ### Dockerfile
 
-\`\`\`Dockerfile
+```Dockerfile
 FROM nginx:latest
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./html /usr/share/nginx/html
-\`\`\`
+```
 
 ### html/index.html
 
-\`\`\`html
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,11 +118,11 @@ COPY ./html /usr/share/nginx/html
     <h1>Success! Nginx is running in a Docker container.</h1>
 </body>
 </html>
-\`\`\`
+```
 
 ### nginx/nginx.conf
 
-\`\`\`conf
+```conf
 events {
     worker_connections 1024;
 }
@@ -138,6 +138,6 @@ http {
         }
     }
 }
-\`\`\`
+```
 
 Feel free to customize the files and configurations to fit your needs. If you encounter any issues or have any questions, please open an issue on the repository.
